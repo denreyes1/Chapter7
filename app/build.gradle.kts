@@ -68,6 +68,8 @@ dependencies {
     implementation(libs.bundles.networking)
     implementation(libs.bundles.compose)
 
+    //Chapter 7
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
