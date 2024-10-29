@@ -14,11 +14,12 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.denreyes.chapter7.data.Cat
 import com.denreyes.chapter7.navigation.Screens
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PetDetailsScreen(onBackPressed: () -> Unit) {
+fun PetDetailsScreen(onBackPressed: () -> Unit, cat: Cat) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -44,7 +45,8 @@ fun PetDetailsScreen(onBackPressed: () -> Unit) {
         content = { paddingValues ->
             PetDetailsScreenContent(
                 modifier = Modifier
-                    .padding(paddingValues)
+                    .padding(paddingValues),
+                cat = cat
             )
         }
     )
@@ -53,5 +55,8 @@ fun PetDetailsScreen(onBackPressed: () -> Unit) {
 @Preview(showBackground = true)
 @Composable
 fun PetDetailsScreenPreview() {
-    PetDetailsScreen({})
+    val tags = ArrayList<String>()
+    tags.add("cute")
+    tags.add("orange")
+    PetDetailsScreen(cat = Cat("qZynqTqBzT2bIVOz", tags), onBackPressed = {})
 }
