@@ -12,11 +12,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.denreyes.chapter7.navigation.AppNavigation
 import com.denreyes.chapter7.ui.theme.Chapter7Theme
 import com.denreyes.chapter7.views.PetList
 
@@ -28,7 +28,18 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Chapter7Theme {
-                AppNavigation()
+                Scaffold(
+                    topBar = {
+                        TopAppBar(title = {
+                            Text(text = "Pets")
+                        },
+                            colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = MaterialTheme.colorScheme.primary)
+                        )
+                    },
+                    content = { paddingValues ->
+                        ListPets(pad = paddingValues)
+                    }
+                )
             }
         }
     }
@@ -48,6 +59,6 @@ fun ListPets(pad: PaddingValues) {
 @Composable
 fun GreetingPreview() {
     Chapter7Theme {
-        AppNavigation()
+        ListPets(PaddingValues())
     }
 }

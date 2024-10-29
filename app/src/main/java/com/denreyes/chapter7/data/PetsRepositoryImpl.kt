@@ -3,6 +3,7 @@ package com.denreyes.chapter7.data
 import android.util.Log
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
+import okhttp3.Dispatcher
 
 class PetsRepositoryImpl(
     private val catsAPI: CatsAPI,
@@ -12,7 +13,7 @@ class PetsRepositoryImpl(
     override suspend fun getPets(): NetworkResult<List<Cat>> {
         return withContext(dispatcher) {
             try {
-                val response = catsAPI.fetchCats("")
+                val response = catsAPI.fetchCats("cute")
                 if(response.isSuccessful) {
                     NetworkResult.Success(response.body()!!)
                 } else {

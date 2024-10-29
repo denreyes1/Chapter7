@@ -1,7 +1,9 @@
 package com.denreyes.chapter7.data
 
+import androidx.activity.result.contract.ActivityResultContracts
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
 
 @Serializable
 data class Cat(
@@ -17,8 +19,8 @@ data class Cat(
 //    @SerialName("updatedAt")
 //    val updatedAt: String,
 
-    @SerialName("mimetype")
-    val mimeType: String,
-    @SerialName("size")
-    val size: Int,
+//    @SerialName("mimetype")
+//    val mimeType: String,
+//    @SerialName("size")
+//    val size: Int,
 )

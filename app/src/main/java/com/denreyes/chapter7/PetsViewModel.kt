@@ -1,9 +1,12 @@
 package com.denreyes.chapter7
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.denreyes.chapter7.data.NetworkResult
 import com.denreyes.chapter7.data.PetsRepository
+import com.denreyes.chapter7.data.PetsRepositoryImpl
 import com.denreyes.chapter7.views.PetsUIState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update

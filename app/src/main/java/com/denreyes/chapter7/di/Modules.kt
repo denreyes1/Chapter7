@@ -10,6 +10,7 @@ import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import org.koin.dsl.module
 import retrofit2.Retrofit
+import retrofit2.create
 
 val appModules = module {
     single<PetsRepository> { PetsRepositoryImpl(get(), get()) }
