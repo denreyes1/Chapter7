@@ -49,7 +49,9 @@ fun PetList(modifier: Modifier, onPetClicked: (Cat) -> Unit) {
         ) {
             LazyColumn {
                 items(petsUIState.pets) { pet ->
-                    PetListItem(cat = pet)
+                    PetListItem(
+                        cat = pet,
+                        onPetClicked = onPetClicked)
                 }
             }
         }
@@ -60,50 +62,6 @@ fun PetList(modifier: Modifier, onPetClicked: (Cat) -> Unit) {
         }
     }
 }
-
-
-@OptIn(ExperimentalLayoutApi::class)
-@Composable
-fun PetListItem(cat: Cat) {
-    ElevatedCard(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(
-                6.dp
-            )
-    ){
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 10.dp)
-        ) {
-            AsyncImage(
-                model = "https://cataas.com/cat/${cat.id}",
-                contentDescription = "Cute cat",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(200.dp),
-                contentScale = ContentScale.FillWidth
-            )
-            FlowRow(
-                modifier = Modifier
-                    .padding(start = 6.dp, end = 6.dp)
-            ) {
-                repeat(cat.tags.size) {
-                    SuggestionChip(
-                        modifier = Modifier
-                            .padding(start = 3.dp, end = 3.dp),
-                        onClick = { },
-                        label = {
-                            Text(text = cat.tags[it])
-                        }
-                    )
-                }
-            }
-        }
-    }
-}
-
 
 @Preview(showBackground = true)
 @Composable
